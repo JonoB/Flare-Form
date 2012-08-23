@@ -167,7 +167,7 @@ Creating a submit button is easy:
 ```php
 $form->submit('Save');
 ```
-By default, Formly will add in the Twitter Bootstrap 'btn'. You can override this in the third parameter if you want:
+By default, Formly will add in the Twitter Bootstrap 'btn' class. You can override this in the third parameter if you want:
 ```php
 $form->submit('Save', $attributes, 'some-class');
 ```

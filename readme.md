@@ -103,9 +103,9 @@ return View::make('posts.form')->with('form', $form);
 
 #### Setting default values inline for each input
 Alternatively, you can also set default values for individual form fields in the actual form. Values set in this way
-will override
+will override defaults set via the method above.
 ```php
-$form->text('start_date, 'Start Date', date('Y-m-d'));
+$form->text('start_date', 'Start Date', date('Y-m-d'));
 ```
 
 #### Setting default via $_POST

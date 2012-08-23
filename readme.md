@@ -1,7 +1,7 @@
 # Flare Form Bundle
 
 Forms support in Laravel, with Twitter Bootstrap styling. All form inputs use Laravel's form helpers
-to create the actual html. Some added goodies like setting form defaults, repopulting forms
+to create the actual html. Some added goodies like setting form defaults, repopulating forms
 automatically and showing failed validation errors.
 
 ## Installation
@@ -162,6 +162,29 @@ this, we achieve two things:
 Note that you do not need to do anything special to your form - simply by return with_errors() and with_input(), Formly
 knows what to do
 
+### Submit buttons
+Creating a submit button is easy:
+```php
+$form->submit('Save');
+```
+By default, Formly will add in the Twitter Bootstrap 'btn'. You can override this in the third parameter if you want:
+```php
+$form->submit('Save', $attributes, 'some-class');
+```
+
+There are also some shortcuts for all the Twitter Bootstrap button styles:
+```php
+// create a button with a class of 'btn btn-primary'
+$form->submit_primary('Save');
+
+// and so on...
+$form->submit_info('Save');
+$form->submit_success('Save');
+$form->submit_warning('Save');
+$form->submit_danger('Save');
+$form->submit_inverse('Save');
+```
+
 ### Formly Options
 There are a couple of other options that allow you to customise how Formly works. You can override this individually
 or in bulk.
@@ -179,7 +202,7 @@ $form = Formly::make()->set_options($options);
 ```
 
 ##### form_class (default: form_horizontal)
-By default, forms are styled using fomr_horizontal, but you can choose
+By default, forms are styled using form-horizontal, but you can choose
 any of Bootstrap's other styles, such as form-vertical, form-inline, form-search
 
 ##### auto_token (default: true)

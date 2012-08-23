@@ -92,7 +92,7 @@ return View::make('posts.form')->with('form', $form);
 In order for this to work, the field names for your forms MUST have the same names as your database fields. If they are not
 the same, then Formly has no idea how to connect the two together.
 
-You can ofcourse, pr-populate fields manually if you wish:
+You can of course, populate fields manually if you wish:
  ```php
 // Pass the default values to Formly
 $form = Formly::make(array('start_date' => date('Y-m-d')));
@@ -140,8 +140,6 @@ public function get_edit($id)
 
 public function post_edit()
 {
-	;
-
 	$rules = array(
 	    'name'  => 'required|max:50',
 	    'email' => 'required|email|unique:users',
@@ -180,20 +178,20 @@ $options = array(
 $form = Formly::make()->set_options($options);
 ```
 
-#### form_class (default: form_horizontal)
+##### form_class (default: form_horizontal)
 By default, forms are styled using fomr_horizontal, but you can choose
 any of Bootstrap's other styles, such as form-vertical, form-inline, form-search
 
-#### auto_token (default: true)
+##### auto_token (default: true)
 Automatically adds a csrf token to the form_open method
 
-#### name_as_id (default: true)
+##### name_as_id (default: true)
 Automatically creates an id for each field based on the field name
 
-#### id_prefix (default: field_)
+##### id_prefix (default: field_)
 If name_as_id is enabled, then this string will be prefixed to the id attribute
 
-#### required_label (default: .req)
+##### required_label (default: .req)
 Say you want to identify a label as being a required field on your form. Using formly,
 you can just append this string to the label parameter, and Formly will automatically
 use the required_prefix, required_suffix and required_class
@@ -201,21 +199,21 @@ use the required_prefix, required_suffix and required_class
 $form->text('start_date', 'Start Date.req');
 ```
 
-#### required_prefix (default:'')
+##### required_prefix (default:'')
 If the required_label has been set, then the text from this variable will
 be prefixed to your label
 
-#### required_suffix (default:' *')
+##### required_suffix (default:' *')
 If the required_label has been set, then the text from this variable will
 be added to the end of your label
 
-#### required_class (default: 'label-required')
+##### required_class (default: 'label-required')
 If the required_label has been set, then this class will be added to the
 label's attribute. You want the label to be bold, for example, which you can
 then style in your css
 
-#### control_group_error (default: 'error')
+##### control_group_error (default: 'error')
 Display a class for the control group if an input field fails validation
 
-#### display_inline_errors (default: false)
+##### display_inline_errors (default: false)
 If the field has failed validation, then inline errors will be shown

@@ -212,7 +212,7 @@ class Formly
 	public function textarea($name, $label = '', $value = null, $attributes = array())
 	{
 		$value = $this->calculate_value($name, $value);
-		$attributes = $this->build_annotation($name, $attributes);
+		$attributes = $this->set_attributes($name, $attributes);
 		if ( ! isset($attributes['rows']))
 		{
 			$attributes['rows'] = 4;

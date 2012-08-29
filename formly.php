@@ -13,6 +13,7 @@ use \URI;
  * @package     Bundles
  * @subpackage  Forms
  * @author      JonoB
+ * @version 	1.0.1
  *
  * @see http://github.com/JonoB/flare-formly
  * @see http://twitter.github.com/bootstrap/
@@ -199,7 +200,27 @@ class Formly
 		$field = Form::text($name, $value, $attributes);
 		return $this->build_wrapper($field, $name, $label);
 	}
-
+	
+	/**
+	 * Create a HTML textarea input element.
+	 *
+	 * @param  string  $name
+	 * @param  string  $value
+	 * @param  array   $attributes
+	 * @return string
+	 */
+	public function textarea($name, $label = '', $value = null, $attributes = array())
+	{
+		$value = $this->calculate_value($name, $value);
+		$attributes = $this->build_annotation($name, $attributes);
+		if ( ! isset($attributes['rows']))
+		{
+			$attributes['rows'] = 4;
+		}
+		$field = Form::textarea($name, $value, $attributes);
+		return $this->build_wrapper($field, $name, $label);
+	}
+	
 	/**
 	 * Create a HTML password input element.
 	 *

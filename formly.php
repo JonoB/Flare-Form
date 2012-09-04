@@ -13,7 +13,7 @@ use \URI;
  * @package     Bundles
  * @subpackage  Forms
  * @author      JonoB
- * @version 	1.0.1
+ * @version 	1.0.2
  *
  * @see http://github.com/JonoB/flare-formly
  * @see http://twitter.github.com/bootstrap/
@@ -269,7 +269,7 @@ class Formly
 		$checked = $this->calculate_value($name, $checked);
 		$attributes = $this->set_attributes($name, $attributes);
 		$field = Form::checkbox($name, $value, $checked, $attributes);
-		return $this->build_wrapper($field, $name, $label);
+		return $this->build_wrapper($field, $name, $label, true);
 	}
 
 	/**
@@ -286,7 +286,16 @@ class Formly
 		return $this->build_wrapper($field, $name, $label);
 	}
 
-	private function build_wrapper($field, $name, $label = '')
+	/**
+	 * Builds the Twitter Bootstrap control wrapper
+	 *
+	 * @param  string  $field The html for the field
+	 * @param  string  $name The name of the field	 
+	 * @param  string  $label The label name
+	 * @param  boolean $checkbox
+	 * @return string
+	 */
+	private function build_wrapper($field, $name, $label = '', $checkbox = false)
 	{
 		$error = (isset(Session::get('errors')->messages[$name][0])) ? Session::get('errors')->messages[$name][0] : '';
 		$class = 'control-group';
@@ -299,13 +308,15 @@ class Formly
 		$out  = '<div class="'.$class.'"'.$id.'>';
 		$out .= $this->build_label($name, $label, false);
 		$out .= '<div class="controls">'.PHP_EOL;
+		$out .= ($checkbox === true) ? '<label class="checkbox">' : '';
 		$out .= $field;
 
 		if ($this->display_inline_errors && ! empty($error))
 		{
 			$out .= '<span class="help-inline">'.$error.'</span>';
 		}
-
+		
+		$out .= ($checkbox === true) ? '</label>' : '';
 		$out .= '</div>';
 		$out .= '</div>'.PHP_EOL;
 		return $out;

@@ -295,7 +295,8 @@ class Formly
 		    $class .= ' ' . $this->control_group_error;
 		}
 
-		$out  = '<div class="'.$class.'" rel="'.$name.'">';
+		$id = ($this->name_as_id) ? ' id="control-group-'.$name.'"' : '';
+		$out  = '<div class="'.$class.'"'.$id.'>';
 		$out .= $this->build_label($name, $label, false);
 		$out .= '<div class="controls">'.PHP_EOL;
 		$out .= $field;

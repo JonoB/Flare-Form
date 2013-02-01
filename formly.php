@@ -333,6 +333,7 @@ class Formly
 	private function build_label($name, $label = '')
 	{
 		$out = '';
+                $name = $this->id_prefix . $name;
 		if ( ! empty($label))
 		{
 			$class = 'control-label';

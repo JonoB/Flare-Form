@@ -536,7 +536,7 @@ class Formly
 	public function reset($value, $attributes = array())
 	{
 		$attributes['type'] = 'reset';
-		$attributes['class'] .= ' btn';
+		$attributes['class'] = array_get($attributes, 'class').' btn';
 		return Form::button($value, $attributes);
 	}
 

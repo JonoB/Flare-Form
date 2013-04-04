@@ -295,7 +295,7 @@ class Formly
 	 * @param  boolean $checkbox
 	 * @return string
 	 */
-	private function build_wrapper($field, $name, $label = '', $checkbox = false)
+	protected function build_wrapper($field, $name, $label = '', $checkbox = false)
 	{
 		$error = (isset(Session::get('errors')->messages[$name][0])) ? Session::get('errors')->messages[$name][0] : '';
 		$class = 'control-group';
@@ -330,7 +330,7 @@ class Formly
 	 * @param  boolean $required
 	 * @return string
 	 */
-	private function build_label($name, $label = '')
+	protected function build_label($name, $label = '')
 	{
 		$out = '';
                 $name = $this->id_prefix . $name;
@@ -359,7 +359,7 @@ class Formly
 	 * @param  string $value The default value for the field
 	 * @return string
 	 */
-	private function calculate_value($name, $value = '')
+	protected function calculate_value($name, $value = '')
 	{
 		$result = '';
 
@@ -391,7 +391,7 @@ class Formly
 	 * @param string $name The field name
 	 * @param array  $attributes
 	 */
-	private function set_attributes($name, $attributes = array())
+	protected function set_attributes($name, $attributes = array())
 	{
 		if ( ! $this->name_as_id or isset($attributes['id']))
 		{
